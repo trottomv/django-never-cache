@@ -1,0 +1,75 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+
+requires = [
+  "setuptools",
+  "wheel",
+]
+
+[project]
+name = "django-never-cache"
+version = "0.0.1"
+description = "A simple Django app to demonstrate never cache views."
+readme = "README.md"
+license = { text = "MIT License" }
+authors = [
+  { name = "Matteo Vitali", email = "trottomv@gmail.com" },
+]
+requires-python = ">=3.7"
+classifiers = [
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 3.2",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+dependencies = [
+  "django>=3.2",
+]
+
+urls.Homepage = "https://github.com/trottomv/django-never-cache"
+
+[tool.ruff]
+target-version = "py312"
+
+format.docstring-code-format = true
+lint.select = [
+  "A",   # flake8-builtins
+  "B",   # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "C90", # McCabe cyclomatic complexity
+  "E",   # pycodestyle errors
+  "F",   # Pyflakes
+  "I",   # isort
+  "Q",   # flake8-quotes
+  "UP",  # pyupgrade
+  "W",   # pycodestyle warnings
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+
+[tool.mypy]
+enable_error_code = [
+  "truthy-bool",
+]
+ignore_missing_imports = true
+python_version = "3.12"
+
+[tool.bandit]
+exclude_dirs = [
+  ".venv",
+  "tests",
+]

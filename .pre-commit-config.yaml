@@ -1,0 +1,43 @@
+default_language_version:
+  python: python3.12
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v5.0.0"
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+        args: ["--allow-multiple-documents"]
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: fix-encoding-pragma
+        args: ["--remove"]
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.9.2
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+      - id: ruff-format
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: "v2.5.0"
+    hooks:
+      - id: pyproject-fmt
+  - repo: https://github.com/pycqa/bandit
+    rev: "1.8.2"
+    hooks:
+      - id: bandit
+        additional_dependencies: ["bandit[toml]"]
+        args: ["--configfile", "pyproject.toml", "--quiet", "--recursive"]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.23.1
+    hooks:
+      - id: gitleaks
