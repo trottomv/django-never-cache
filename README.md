@@ -5,7 +5,7 @@ and a middleware to disable caching for the whole site.
 
 ## Prerequisites
 
-- Python >= 3.7
+- Python >= 3.9
 - Django >= 3.2
 
 ## Installation
@@ -13,7 +13,7 @@ and a middleware to disable caching for the whole site.
 1. Install the package via pip:
 
     ```bash
-    pip install git+https://github.com/trottomv/django-never-cache.git
+    pip install django-never-cache
     ```
 
 2. Add `django_never_cache` to your `INSTALLED_APPS` in `settings.py`:
@@ -93,10 +93,7 @@ You can contribute to this project on [GitHub](https://github.com/trottomv/djang
 To run the tests, run the following command:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install -r requirements.in
-python3 -m pytest
+tox
 ```
 
 # License

@@ -1,21 +1,17 @@
 [build-system]
-build-backend = "setuptools.build_meta"
-
-requires = [
-  "setuptools",
-  "wheel",
-]
+build-backend = "hatchling.build"
+requires = [ "hatchling" ]
 
 [project]
 name = "django-never-cache"
-version = "0.0.1"
+version = "0.0.1-beta"
 description = "A simple Django app to demonstrate never cache views."
 readme = "README.md"
-license = { text = "MIT License" }
+license = { file = "LICENSE" }
 authors = [
   { name = "Matteo Vitali", email = "trottomv@gmail.com" },
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
   "Environment :: Web Environment",
   "Framework :: Django",
@@ -25,7 +21,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",

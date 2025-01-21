@@ -24,20 +24,58 @@ jobs:
         run: pre-commit run --all-files
 
   test:
+    name: Test (Python ${{ matrix.python-version }}, Django ${{ matrix.django-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+        - '3.9'
+        - '3.10'
+        - '3.11'
+        - '3.12'
+        django-version:
+        - '4.2'
+        - '5.0'
+        - '5.1'
+        - 'main'
+        include:
+          # https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django
+          - python-version: '3.8'
+            django-version: '4.2'
+          - python-version: '3.9'
+            django-version: '4.2'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+
+      - name: Get pip cache dir
+        id: pip-cache
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.in
+          echo "::set-output name=dir::$(pip cache dir)"
 
-      - name: Run tests
-        run: python3 -m pytest
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key:
+            ${{ matrix.python-version }}-v1-${{ hashFiles('**/pyproject.toml') }}-${{ hashFiles('**/tox.ini') }}
+          restore-keys: |
+            ${{ matrix.python-version }}-v1-
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade tox tox-gh-actions
+
+      - name: Tox tests
+        run: |
+          tox -v
+        env:
+          DJANGO: ${{ matrix.django-version }}
