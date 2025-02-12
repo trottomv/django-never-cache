@@ -1,7 +1,6 @@
 # Django Never Cache
 
-This Django app provides mixins to disable caching for generic and login required views,
-and a middleware to disable caching for the whole site.
+This Django app provides a suite of utilities to disable caching in template views.
 
 ## Prerequisites
 
