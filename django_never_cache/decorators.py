@@ -1,15 +1,17 @@
 from functools import wraps
 
-import django
 from asgiref.sync import iscoroutinefunction
+from django.views.decorators import cache
 
 
 def check_request(request):
-    """Check if the request is allowed to cache."""
-    if django.get_version() > "5.0":
-        from django.views.decorators.cache import _check_request
+    """
+    Check if the request is allowed to cache.
 
-        _check_request(request, "allow_cache")
+    `_check_request` is available in Django > 5.0
+    """
+    if hasattr(cache, "_check_request"):
+        cache._check_request(request, "allow_cache")
 
 
 def allow_cache(view_func):
