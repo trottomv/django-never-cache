@@ -5,23 +5,23 @@ repos:
     rev: "v5.0.0"
     hooks:
       - id: check-added-large-files
-        args: ["--maxkb=1024"]
+        args: [ "--maxkb=1024" ]
       - id: check-case-conflict
       - id: check-docstring-first
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
-        args: ["--allow-multiple-documents"]
+        args: [ "--allow-multiple-documents" ]
       - id: debug-statements
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: fix-byte-order-marker
       - id: fix-encoding-pragma
-        args: ["--remove"]
+        args: [ "--remove" ]
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.9.2
+    rev: v0.9.6
     hooks:
       - id: ruff
         args:
@@ -35,9 +35,9 @@ repos:
     rev: "1.8.2"
     hooks:
       - id: bandit
-        additional_dependencies: ["bandit[toml]"]
-        args: ["--configfile", "pyproject.toml", "--quiet", "--recursive"]
+        additional_dependencies: [ "bandit[toml]" ]
+        args: [ "--configfile", "pyproject.toml", "--quiet", "--recursive" ]
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.23.1
+    rev: v8.23.3
     hooks:
       - id: gitleaks

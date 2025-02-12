@@ -79,6 +79,11 @@ class MyCachedView(TemplateView):
 
 You can contribute to this project on [GitHub](https://github.com/trottomv/django-never-cache).
 
+## Prerequisites
+
+- tox
+- Golang >= 1.21
+
 ## How to Contribute
 
 1. Fork the [repository](https://github.com/trottomv/django-never-cache).
