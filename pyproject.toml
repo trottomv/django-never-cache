@@ -4,7 +4,7 @@ requires = [ "hatchling" ]
 
 [project]
 name = "django-never-cache"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Django app that provides a suite of utilities to disable caching in template views."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -27,6 +27,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Internet :: WWW/HTTP",
   "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
@@ -37,7 +38,7 @@ dependencies = [
 urls.Homepage = "https://github.com/trottomv/django-never-cache"
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py313"
 
 format.docstring-code-format = true
 lint.select = [
@@ -61,7 +62,7 @@ enable_error_code = [
   "truthy-bool",
 ]
 ignore_missing_imports = true
-python_version = "3.12"
+python_version = "3.13"
 
 [tool.bandit]
 exclude_dirs = [
