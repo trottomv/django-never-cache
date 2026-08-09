@@ -1,10 +1,10 @@
 # Django Never Cache
 
-This Django app provides a suite of utilities to disable caching in template views.
+This Django app provides a suite of utilities to disable caching in your views.
 
-## Prerequisites
+## Requirements
 
-- Python >= 3.9
+- Python >= 3.8
 - Django >= 3.2
 
 ## Installation
@@ -27,7 +27,9 @@ This Django app provides a suite of utilities to disable caching in template vie
 
 ## Usage
 
-### NoCacheMixin
+### Mixins
+
+#### NoCacheMixin
 
 Use `NoCacheMixin` to disable caching for a view:
 
@@ -39,7 +41,7 @@ class MyView(NoCacheMixin, TemplateView):
     template_name = "my_template.html"
 ```
 
-### PrivateAreaMixin
+#### PrivateAreaMixin
 
 Use `PrivateAreaMixin` to require login and disable caching for a private area:
 
@@ -51,18 +53,20 @@ class MyView(PrivateAreaMixin, TemplateView):
     template_name = "my_private_template.html"
 ```
 
-### NoCacheMiddleware
+### NeverCacheMiddleware
 
-Use `NoCacheMiddleware` if you want to disable caching for the whole site:
+Use `NeverCacheMiddleware` if you want to disable caching for the whole site:
 
 ```python
 MIDDLEWARE = [
     ...
-    "django_never_cache.middleware.NeverCacheMiddleware",
+    "django_never_cache.middlewares.NeverCacheMiddleware",
 ]
 ```
 
-If you have setted `NeverCacheMiddleware` in `MIDDLEWARE` you can exclude caching for a view using `allow_cache` decorator.
+### allow_cache
+
+If you have added `NeverCacheMiddleware` to `MIDDLEWARE`, you can re-enable caching for a specific view using the `allow_cache` decorator:
 
 ```python
 from django.utils.decorators import method_decorator
@@ -74,16 +78,26 @@ class MyCachedView(TemplateView):
     template_name = "my_cached_template.html"
 ```
 
-# Contribute
+`allow_cache` supports both synchronous and asynchronous views.
 
-You can contribute to this project on [GitHub](https://github.com/trottomv/django-never-cache).
+## Development
 
-## Prerequisites
+### Prerequisites
 
 - tox
 - Golang >= 1.21
 
-## How to Contribute
+### Run tests
+
+To run the tests, run the following command:
+
+```bash
+tox
+```
+
+### Contribute
+
+You can contribute to this project on [GitHub](https://github.com/trottomv/django-never-cache).
 
 1. Fork the [repository](https://github.com/trottomv/django-never-cache).
 2. Create a new branch: `git checkout -b my-branch-name`.
@@ -92,14 +106,6 @@ You can contribute to this project on [GitHub](https://github.com/trottomv/djang
 5. Push your branch: `git push origin my-branch-name`.
 6. Create a pull request.
 
-## Run tests
-
-To run the tests, run the following command:
-
-```bash
-tox
-```
-
-# License
+## License
 
 This project is released under the [MIT License](LICENSE).

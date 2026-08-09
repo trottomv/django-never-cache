@@ -17,7 +17,7 @@ class CachedView(View):
 
 @override_settings(
     MIDDLEWARE=settings.MIDDLEWARE
-    + ["django_never_cache.middelwares.NeverCacheMiddleware"]
+    + ["django_never_cache.middlewares.NeverCacheMiddleware"]
 )
 class CachedViewTest(TestCase):
     """Test a cached view with the `allow_cache` decorator."""

@@ -4,7 +4,7 @@ from django.test import Client, TestCase, override_settings
 
 @override_settings(
     MIDDLEWARE=settings.MIDDLEWARE
-    + ["django_never_cache.middelwares.NeverCacheMiddleware"]
+    + ["django_never_cache.middlewares.NeverCacheMiddleware"]
 )
 class NeverCacheMiddlewareTest(TestCase):
     """Test NeverCacheMiddleware."""
