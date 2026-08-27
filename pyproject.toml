@@ -4,7 +4,7 @@ requires = [ "hatchling" ]
 
 [project]
 name = "django-never-cache"
-version = "0.1.4"
+version = "0.1.5"
 description = "A Django app that provides a suite of utilities to disable caching in your sensitive views."
 readme = "README.md"
 license = { file = "LICENSE" }
