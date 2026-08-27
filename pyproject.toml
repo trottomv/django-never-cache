@@ -5,7 +5,7 @@ requires = [ "hatchling" ]
 [project]
 name = "django-never-cache"
 version = "0.1.4"
-description = "A Django app that provides a suite of utilities to disable caching in your views."
+description = "A Django app that provides a suite of utilities to disable caching in your sensitive views."
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
@@ -16,6 +16,12 @@ classifiers = [
   "Environment :: Web Environment",
   "Framework :: Django",
   "Framework :: Django :: 3.2",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.1",
+  "Framework :: Django :: 5.2",
+  "Framework :: Django :: 6.0",
+  "Framework :: Django :: 6.1",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",

@@ -1,6 +1,13 @@
+[![License: MIT](https://img.shields.io/github/license/trottomv/django-never-cache.svg)](LICENSE)
+[![CI](https://github.com/trottomv/django-never-cache/actions/workflows/ci.yml/badge.svg)](https://github.com/trottomv/django-never-cache/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/django-never-cache.svg)](https://pypi.org/project/django-never-cache/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/django-never-cache.svg)](https://pypi.org/project/django-never-cache/)
+[![Django Versions](https://img.shields.io/pypi/djversions/django-never-cache.svg)](https://pypi.org/project/django-never-cache/)
+[![Django Packages](https://img.shields.io/badge/Django_Packages-django--never--cache-8c3c26.svg)](https://djangopackages.org/packages/p/django-never-cache/)
+
 # Django Never Cache
 
-This Django app provides a suite of utilities to disable caching in your views.
+This Django app provides a suite of utilities to disable caching in your sensitive views.
 
 ## Requirements
 
